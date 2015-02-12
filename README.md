@@ -8,6 +8,13 @@ An useful tooltip control as an AngularJs directive
 tooltipText   | one-way binding | sets the text for the ToolTip
 tooltipClass  | one-way binding | sets the Cascading Style Sheet (CSS) class for the ToolTip
 
+  event name            |     data        |   description    
+--------------          | ----------------|-------------------------------------------------------------------
+ngDvTooltip_MouseMove   | tooltipElement  | it will be raised during de mouse move on the ToolTip element and sends a data object with the ToolTip element
+ngDvTooltip_MouseOut    |       ***       | it will be raised during de mouse move on the ToolTip element
+
+
+
 
 ```javascript
  //1) basic usage
