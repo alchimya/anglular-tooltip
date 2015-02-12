@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Tooltip Test</title>
+    <link rel="stylesheet" type="text/css" href="css/site.css">
+</head>
+<body>
+
+    <div ng-controller="ToolTipController">
+        <ng-dv-tooltip
+                >Move mouse here
+        </ng-dv-tooltip>
+        <ng-dv-tooltip
+                tooltip-text="This example represents a basic usage">Move mouse here
+        </ng-dv-tooltip>
+        <br/>
+        <ng-dv-tooltip
+                tooltip-text="This example uses a custom CSS class"
+                tooltip-class="tip">Move mouse here
+        </ng-dv-tooltip>
+        <br/>
+        <div
+                style="background-color:red;width:150px;"
+                ng-dv-tooltip="testTooltip"
+                tooltip-text="Tooltip as an attribute of a div element" >Move mouse here
+        </div>
+        <div
+                style="background-color:red;width:150px;"
+                ng-dv-tooltip="testTooltip"
+                tooltip-text="Tooltip as an attribute of a div element with a custom CSS class"
+                tooltip-class="tip">Move mouse here
+        </div>
+        <ng-dv-tooltip tooltip-text="Test tooltip">
+            <span>Text inside a span</span>
+        </ng-dv-tooltip>
+
+        <br/>
+        <ng-dv-tooltip tooltip-text="Test tooltip">
+            <div>
+                <span>
+                    <span>Text inside a span elements</span>
+                </span>
+            </div>
+        </ng-dv-tooltip>
+
+        <h1>Countries</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Country Name (move the mouse on the country to discover the capital)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="country in countries">
+                    <td>
+                        <ng-dv-tooltip tooltip-text="The capital is {{country.capital}}">{{country.name}}</ng-dv-tooltip>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="controllers/ToolTipController.js"></script>
+    <script src="../source/anglular-tooltip.js"></script>
+</body>
+</html>
