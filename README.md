@@ -2,12 +2,14 @@
 An useful tooltip control as an AngularJs directive
 
 # How to use
+<h5>isolatd scope data</h5>
 
   attr name   |     type        |   description    
 --------------| ----------------|-------------------------------------------------------------------
 tooltipText   | one-way binding | sets the text for the ToolTip
 tooltipClass  | one-way binding | sets the Cascading Style Sheet (CSS) class for the ToolTip
 
+<h5>events</h5>
   event name            |     data        |   description    
 --------------          | ----------------|-------------------------------------------------------------------
 ngDvTooltip_MouseMove   | tooltipElement  | it will be raised during de mouse move on the ToolTip element and sends a data object with the ToolTip element
