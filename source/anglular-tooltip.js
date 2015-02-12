@@ -69,16 +69,14 @@ ngDvTooltip.directive('ngDvTooltip',function($compile){
 
             //stores our ToolTip element into a local var
             var spanItems= element.find('span');
-            var _toolTipContainer =spanItems[spanItems.length-1];
-
+            var _toolTipContainer =$compile(spanItems[spanItems.length-1])(scope);
 
             //////////////////////////////////////////////////////////////////
             //Element mouse events
             element.on('mousemove',function(event){
                 showTooltip(event.pageX,event.pageY);
                 //emit an event on mouse move and send the ToolTip element
-                var ele=$compile(_toolTipContainer)(scope);
-                scope.$emit('ngDvTooltip_MouseMove', {tooltipElement:ele});
+                scope.$emit('ngDvTooltip_MouseMove', {tooltipElement:_toolTipContainer});
             });
             element.on('mouseout',function(event){
                 hideTooltip();
@@ -89,15 +87,18 @@ ngDvTooltip.directive('ngDvTooltip',function($compile){
 
             var setTooltipDefaultStyle=function(){
                 //sets default layout
-                _toolTipContainer.style.position = "absolute";
-                _toolTipContainer.style.width = "auto";
-                _toolTipContainer.innerHTML=scope.tooltipText;
+                _toolTipContainer
+                    .css('position', "absolute")
+                    .css('width', 'auto')
+                    .text(scope.tooltipText);
+
                 if (scope.tooltipClass===undefined){
-                    _toolTipContainer.style.background="#FFFFCC";
-                    _toolTipContainer.style.border="1px solid #ccc";
-                    _toolTipContainer.style.padding="10px";
-                    _toolTipContainer.style.borderRadius="8px";
-                    _toolTipContainer.style.boxShadow="0 5px 10px rgba(0, 0, 0, 0.2)";
+                    _toolTipContainer
+                        .css('background', '#FFFFCC')
+                        .css('border', '1px solid #ccc')
+                        .css('padding', '10px')
+                        .css('borderRadius', '8px')
+                        .css('boxShadow', '0 5px 10px rgba(0, 0, 0, 0.2)');
                 }
             };
 
@@ -105,12 +106,13 @@ ngDvTooltip.directive('ngDvTooltip',function($compile){
                 if (scope.tooltipText===undefined ){
                     return;
                 }
-                _toolTipContainer.style.visibility="visible";
-                _toolTipContainer.style.left = x + "px";
-                _toolTipContainer.style.top = y + "px";
+                _toolTipContainer
+                    .css('visibility', "visible")
+                    .css('left', x + 'px')
+                    .css('top', y + 'px');
             };
             var hideTooltip=function(){
-                _toolTipContainer.style.visibility="hidden";
+                _toolTipContainer.css('visibility','hidden');
             };
 
             setTooltipDefaultStyle();
