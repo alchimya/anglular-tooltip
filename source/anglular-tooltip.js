@@ -73,32 +73,32 @@ ngDvTooltip.directive('ngDvTooltip',function($compile){
 
             //////////////////////////////////////////////////////////////////
             //Element mouse events
-            element.on('mousemove',function(event){
+            element.on("mousemove",function(event){
                 showTooltip(event.pageX,event.pageY);
                 //emit an event on mouse move and send the ToolTip element
-                scope.$emit('ngDvTooltip_MouseMove', {tooltipElement:_toolTipContainer});
+                scope.$emit("ngDvTooltip_MouseMove", {tooltipElement:_toolTipContainer});
             });
-            element.on('mouseout',function(event){
+            element.on("mouseout",function(event){
                 hideTooltip();
                 //emit an event on mouse out
-                scope.$emit('ngDvTooltip_MouseOut');
+                scope.$emit("ngDvTooltip_MouseOut");
             });
             //////////////////////////////////////////////////////////////////
 
             var setTooltipDefaultStyle=function(){
                 //sets default layout
                 _toolTipContainer
-                    .css('position', "absolute")
-                    .css('width', 'auto')
+                    .css("position", "absolute")
+                    .css("width", "auto")
                     .text(scope.tooltipText);
 
                 if (scope.tooltipClass===undefined){
                     _toolTipContainer
-                        .css('background', '#FFFFCC')
-                        .css('border', '1px solid #ccc')
-                        .css('padding', '10px')
-                        .css('borderRadius', '8px')
-                        .css('boxShadow', '0 5px 10px rgba(0, 0, 0, 0.2)');
+                        .css("background", "#FFFFCC")
+                        .css("border", "1px solid #ccc")
+                        .css("padding", "10px")
+                        .css("borderRadius", "8px")
+                        .css("boxShadow", "0 5px 10px rgba(0, 0, 0, 0.2)");
                 }
             };
 
@@ -107,12 +107,12 @@ ngDvTooltip.directive('ngDvTooltip',function($compile){
                     return;
                 }
                 _toolTipContainer
-                    .css('visibility', "visible")
-                    .css('left', x + 'px')
-                    .css('top', y + 'px');
+                    .css("visibility", "visible")
+                    .css("left", x + "px")
+                    .css("top", y + "px");
             };
             var hideTooltip=function(){
-                _toolTipContainer.css('visibility','hidden');
+                _toolTipContainer.css("visibility","hidden");
             };
 
             setTooltipDefaultStyle();
