@@ -50,8 +50,8 @@
  *      tooltip-text="Tooltip as an attribute of a div element" >Move mouse here
  *  </div>
  */
-var ngDvTooltip=angular.module('ngDvTooltip',[]);
-ngDvTooltip.directive('ngDvTooltip',function($compile){
+var ngDvTooltipModule=angular.module('ngDvTooltipModule',[]);
+ngDvTooltipModule.directive('ngDvTooltip',function($compile){
 
     return{
         restrict:'EA',
