@@ -35,3 +35,5 @@ ngDvTooltip_MouseOut    |       ***       | it will be raised during de mouse mo
        tooltip-text="Tooltip as an attribute of a div element" >Move mouse here
    </div>
 ```
+<br/>
+![ScreenShot](https://raw.github.com/alchimya/anglular-tooltip/master/screenshots/anglular-tooltip.gif)
